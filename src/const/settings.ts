@@ -19,9 +19,9 @@ export const DEFAULT_BASE_SETTINGS: GlobalBaseSettings = {
 export const DEFAUTT_AGENT_TTS_CONFIG: LobeAgentTTSConfig = {
   showAllLocaleVoice: false,
   sttLocale: 'auto',
-  ttsService: 'openai',
+  ttsService: 'edge',
   voice: {
-    openai: 'alloy',
+    openai: 'zh-CN-XiaoxiaoNeural',
   },
 };
 
@@ -32,15 +32,15 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'gpt-3.5-turbo',
+  model: 'yi-34b-chat-0205',
   params: {
     frequency_penalty: 0,
     presence_penalty: 0,
-    temperature: 0.6,
-    top_p: 1,
+    temperature: 0.3,
+    top_p: 0.8,
   },
   plugins: [],
-  provider: ModelProvider.OpenAI,
+  provider: ModelProvider.ZeroOne,
   systemRole: '',
   tts: DEFAUTT_AGENT_TTS_CONFIG,
 };
