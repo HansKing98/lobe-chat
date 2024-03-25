@@ -5,6 +5,7 @@ const ZeroOne: ModelProviderCard = {
     {
       description: '支持聊天、问答、对话、写作、翻译等功能。',
       displayName: 'YI 34B Chat',
+      functionCall: true,
       id: 'yi-34b-chat-0205',
       tokens: 4000,
     },
@@ -19,6 +20,7 @@ const ZeroOne: ModelProviderCard = {
     {
       description: '增强了问答对话交互和深度内容创作能力。文档问答和构建知识库小能手。',
       displayName: 'YI 34B Chat 200k',
+      functionCall: true,
       id: 'yi-34b-chat-200k',
       tokens: 200_000,
     },
