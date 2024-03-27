@@ -203,10 +203,10 @@ export default {
       },
     },
     ZeroOne: {
-      title: '零一万物',
+      title: '01.AI 零一万物',
       token: {
-        desc: '填入来自零一万物的 API Key',
-        placeholder: '零一万物 API Key',
+        desc: '填入来自 01.AI 零一万物的 API Key',
+        placeholder: '01.AI 零一万物 API Key',
         title: 'API Key',
       },
     },
