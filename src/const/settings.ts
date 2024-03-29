@@ -36,6 +36,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   model: 'yi-34b-chat-0205',
   params: {
     frequency_penalty: 0,
+    max_tokens: 4000,
     presence_penalty: 0,
     temperature: 0.3,
     top_p: 0.8,

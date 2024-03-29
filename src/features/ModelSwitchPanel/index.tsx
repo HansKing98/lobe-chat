@@ -47,7 +47,11 @@ const ModelSwitchPanel = memo<PropsWithChildren>(({ children }) => {
           key: model.id,
           label: <ModelItemRender {...model} />,
           onClick: () => {
-            updateAgentConfig({ model: model.id, provider: provider.id });
+            updateAgentConfig({
+              model: model.id,
+              params: { max_tokens: model.tokens },
+              provider: provider.id,
+            });
           },
         }));
 
