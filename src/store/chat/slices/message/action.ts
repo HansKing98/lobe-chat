@@ -410,8 +410,17 @@ export const chatMessage: StateCreator<
     }
 
     // 4. handle max_tokens
-    config.params.max_tokens = config.enableMaxTokens ? config.params.max_tokens : undefined;
-
+    if (config.model.includes('yi-')) {
+      //
+      if (config.model === 'yi-vl-plus') {
+        /* eslint-disable unicorn/no-lonely-if */
+        if (config.params.max_tokens && config.params.max_tokens > 2048)
+          // refs: https://github.com/lobehub/lobe-chat/issues/837
+          config.params.max_tokens = 2048;
+      }
+    } else {
+      config.params.max_tokens = config.enableMaxTokens ? config.params.max_tokens : undefined;
+    }
     // 5. handle config for the vision model
     // Due to the gpt-4-vision-preview model's default max_tokens is very small
     // we need to set the max_tokens a larger one.

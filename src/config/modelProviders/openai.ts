@@ -115,7 +115,7 @@ const OpenAI: ModelProviderCard = {
       vision: true,
     },
   ],
-  enabled: true,
+  // enabled: true,
   id: 'openai',
 };
 

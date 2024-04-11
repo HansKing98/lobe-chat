@@ -6,6 +6,7 @@ import {
   GlobalDefaultAgent,
   GlobalLLMConfig,
   GlobalSettings,
+  GlobalSyncSettings,
   GlobalTTSConfig,
 } from '@/types/settings';
 
@@ -19,9 +20,9 @@ export const DEFAULT_BASE_SETTINGS: GlobalBaseSettings = {
 export const DEFAUTT_AGENT_TTS_CONFIG: LobeAgentTTSConfig = {
   showAllLocaleVoice: false,
   sttLocale: 'auto',
-  ttsService: 'openai',
+  ttsService: 'edge',
   voice: {
-    openai: 'alloy',
+    openai: 'zh-CN-XiaoxiaoNeural',
   },
 };
 
@@ -32,15 +33,16 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'gpt-3.5-turbo',
+  model: 'yi-34b-chat-0205',
   params: {
     frequency_penalty: 0,
+    max_tokens: 4000,
     presence_penalty: 0,
-    temperature: 0.6,
-    top_p: 1,
+    temperature: 0.3,
+    top_p: 0.8,
   },
   plugins: [],
-  provider: ModelProvider.OpenAI,
+  provider: ModelProvider.ZeroOne,
   systemRole: '',
   tts: DEFAUTT_AGENT_TTS_CONFIG,
 };
@@ -125,9 +127,14 @@ export const DEFAULT_TOOL_CONFIG = {
   },
 };
 
+const DEFAULT_SYNC_CONFIG: GlobalSyncSettings = {
+  webrtc: { enabled: false },
+};
+
 export const DEFAULT_SETTINGS: GlobalSettings = {
   defaultAgent: DEFAULT_AGENT,
   languageModel: DEFAULT_LLM_CONFIG,
+  sync: DEFAULT_SYNC_CONFIG,
   tool: DEFAULT_TOOL_CONFIG,
   tts: DEFAULT_TTS_CONFIG,
   ...DEFAULT_BASE_SETTINGS,

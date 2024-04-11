@@ -149,10 +149,19 @@ const modelSelectList = (s: GlobalStore): ModelProviderCard[] => {
 
   const ollamaChatModels = processChatModels(ollamaModelConfig, OllamaProvider.chatModels);
 
-  const openrouterModelConfig = parseModelString(
+  const openrouterModelString = [
+    s.serverConfig.languageModel?.openrouter?.customModelName,
     currentSettings(s).languageModel.openrouter.customModelName,
-  )
-  const openrouterChatModels = processChatModels(openrouterModelConfig, OpenRouterProvider.chatModels);
+  ]
+    .filter(Boolean)
+    .join(',');
+
+  const openrouterModelConfig = parseModelString(openrouterModelString);
+
+  const openrouterChatModels = processChatModels(
+    openrouterModelConfig,
+    OpenRouterProvider.chatModels,
+  );
 
   return [
     {
@@ -169,8 +178,8 @@ const modelSelectList = (s: GlobalStore): ModelProviderCard[] => {
     { ...GroqProvider, enabled: enableGroq(s) },
     { ...ZhiPuProvider, enabled: enableZhipu(s) },
     { ...MoonshotProvider, enabled: enableMoonshot(s) },
-    { ...OpenRouterProvider, chatModels: openrouterChatModels, enabled: enableOpenrouter(s)},
-    { ...ZeroOneProvider, enabled: enableZeroone(s) }
+    { ...OpenRouterProvider, chatModels: openrouterChatModels, enabled: enableOpenrouter(s) },
+    { ...ZeroOneProvider, enabled: enableZeroone(s) },
   ];
 };
 
