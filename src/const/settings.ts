@@ -33,7 +33,7 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   displayMode: 'chat',
   enableAutoCreateTopic: true,
   historyCount: 1,
-  model: 'yi-34b-chat-0205',
+  model: 'yi-large',
   params: {
     frequency_penalty: 0,
     max_tokens: 4000,

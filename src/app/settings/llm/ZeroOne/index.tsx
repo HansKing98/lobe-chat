@@ -32,7 +32,7 @@ const ZeroOneProvider = memo(() => {
           name: [LLMProviderConfigKey, providerKey, LLMProviderApiTokenKey],
         },
         {
-          children: <Checker model={'yi-34b-chat-0205'} provider={ModelProvider.ZeroOne} />,
+          children: <Checker model={'yi-large'} provider={ModelProvider.ZeroOne} />,
           desc: t('llm.checker.desc'),
           label: t('llm.checker.title'),
           minWidth: '100%',
