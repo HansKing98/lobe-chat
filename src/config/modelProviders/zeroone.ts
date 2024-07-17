@@ -11,6 +11,14 @@ const ZeroOne: ModelProviderCard = {
       tokens: 16_384,
     },
     {
+      description: '全新千亿参数模型，提供超强问答及文本生成能力。',
+      displayName: 'Yi Large Function Calling',
+      enabled: true,
+      functionCall: true,
+      id: 'yi-large-fc',
+      tokens: 32_768,
+    },
+    {
       description: '中型尺寸模型升级微调，能力均衡，性价比高。深度优化指令遵循能力。',
       displayName: 'Yi Medium',
       enabled: true,
